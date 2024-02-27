@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISTERRNORT SUPER DUPER CIRCLE SKIN</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(to bottom right, #8e44ad, #7d3c98, #5d478b, #4a69bd);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 48px;
+            background-image: linear-gradient(to right, #ffcd03, #ff85e4, #01cdfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbowText 5s infinite linear;
+        }
+
+        @keyframes rainbowText {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        #download-button {
+            padding: 15px 30px;
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: glow 1.5s ease infinite alternate;
+        }
+
+        #download-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(106, 90, 205, 0.7);
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(106, 90, 205, 0.7);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(106, 90, 205, 0.7);
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .screenshot {
+            margin: 0 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.1);
+        }
+
+        .screenshot img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MISTERRNORT <span style="color:#ff85e4;">SUPER DUPER</span> CIRCLE SKIN</h1>
+        <a id="download-button" href="MISTERRNORT-SUPER DUPER-CIRCLE-SKIN.osk" download>Download Skin</a>
+        <div class="row">
+            <div class="screenshot">
+                <a href="screenshot1.jpg" target="_blank">
+                    <img src="screenshot1.jpg" alt="Screenshot 1">
+                </a>
+            </div>
+            <div class="screenshot">
+                <a href="screenshot2.jpg" target="_blank">
+                    <img src="screenshot2.jpg" alt="Screenshot 2">
+                </a>
+            </div>
+            <div class="screenshot">
+                <a href="screenshot3.jpg" target="_blank">
+                    <img src="screenshot3.jpg" alt="Screenshot 3">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="screenshot">
+                <a href="screenshot4.jpg" target="_blank">
+                    <img src="screenshot4.jpg" alt="Screenshot 4">
+                </a>
+            </div>
+            <div class="screenshot">
+                <a href="screenshot5.jpg" target="_blank">
+                    <img src="screenshot5.jpg" alt="Screenshot 5">
+                </a>
+            </div>
+            <div class="screenshot">
+                <a href="screenshot6.jpg" target="_blank">
+                    <img src="screenshot6.jpg" alt="Screenshot 6">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
