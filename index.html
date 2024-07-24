@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MISTERRNORT SUPER DUPER CIRCLE SKIN</title>
+    <meta name="description" content="Download the MRNORT SUPER DUPER CIRCLE SKIN">
+    <meta name="keywords" content="MRNORT, SUPER DUPER, CIRCLE SKIN, Download, Skin, Osu, Mania">
+    <title>MRNORT SUPER DUPER CIRCLE SKIN</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,131 +21,199 @@
         }
 
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            width: 80%;
-            max-width: 800px; /* Adjust max-width as needed */
+            width: 90%;
+            max-width: 800px;
             text-align: center;
             padding: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            animation: containerFadeIn 2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes containerFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
-            margin-bottom: 40px;
             font-size: 48px;
-            background-image: linear-gradient(to right, #ffcd03, #ff85e4, #01cdfe);
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ffcd03, #ff85e4, #01cdfe, #ff85e4);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: rainbowText 5s infinite linear;
+            animation: gradientText 8s linear infinite, textFadeIn 2s ease;
+            display: inline-block;
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        @keyframes rainbowText {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        #download-button {
+        @keyframes textFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        #download-button, #download-mint-button {
             padding: 15px 30px;
-            background-color: #6a5acd;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: glow 1.5s ease infinite alternate;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            animation: glow 1.5s ease infinite alternate, buttonFadeIn 2s ease;
+            display: inline-block;
+            margin: 15px;
+            text-decoration: none;
+        }
+
+        #download-button {
+            background-color: #6a5acd;
         }
 
         #download-button:hover {
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(106, 90, 205, 0.7);
+            background-color: #483d8b;
+        }
+
+        #download-mint-button {
+            background-color: #1e8f8c; /* Slightly muted mint color */
+        }
+
+        #download-mint-button:hover {
+            background-color: #17a589;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(30, 143, 140, 0.7);
         }
 
         @keyframes glow {
-            from {
-                box-shadow: 0 0 10px rgba(106, 90, 205, 0.7);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(106, 90, 205, 0.7);
-            }
+            from { box-shadow: 0 0 10px rgba(106, 90, 205, 0.7); }
+            to { box-shadow: 0 0 20px rgba(106, 90, 205, 0.7); }
         }
 
-        .row {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
+        @keyframes buttonFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        .screenshot {
-            margin: 0 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .screenshot:hover {
-            transform: scale(1.2);
-        }
-
-        .screenshot img {
-            width: 300px;
-            height: auto;
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: block;
+        }
+
+        .carousel .prev, .carousel .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
             cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            #download-button, #download-mint-button { font-size: 14px; padding: 10px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 28px; }
+            #download-button, #download-mint-button { font-size: 12px; padding: 8px 16px; }
+            .container { padding: 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>MISTERRNORT <span style="color:#ff85e4;">SUPER DUPER</span> CIRCLE SKIN</h1>
-        <a id="download-button" href="MISTERRNORT-SUPER DUPER-CIRCLE-SKIN.osk" download>Download Skin</a>
-        <div class="row">
-            <div class="screenshot">
-                <a href="screenshot1.jpg" target="_blank">
-                    <img src="screenshot1.jpg" alt="Screenshot 1">
-                </a>
+        <h1>MRNORT SUPER DUPER CIRCLE SKIN</h1>
+        <a id="download-button" href="MRNORT-SUPER-DUPER-CIRCLE-SKIN.osk" download>Download Skin</a>
+        <a id="download-mint-button" href="MRNORT-MINT-EDITION.osk" download>Download Mint Edition</a>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <img src="screenshot1.jpg" alt="Screenshot 1" class="active">
+                <img src="screenshot2.jpg" alt="Screenshot 2">
+                <img src="screenshot3.jpg" alt="Screenshot 3">
+                <img src="screenshot4.jpg" alt="Screenshot 4">
+                <img src="screenshot5.jpg" alt="Screenshot 5">
+                <img src="screenshot6.jpg" alt="Screenshot 6">
             </div>
-            <div class="screenshot">
-                <a href="screenshot2.jpg" target="_blank">
-                    <img src="screenshot2.jpg" alt="Screenshot 2">
-                </a>
-            </div>
-            <div class="screenshot">
-                <a href="screenshot3.jpg" target="_blank">
-                    <img src="screenshot3.jpg" alt="Screenshot 3">
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="screenshot">
-                <a href="screenshot4.jpg" target="_blank">
-                    <img src="screenshot4.jpg" alt="Screenshot 4">
-                </a>
-            </div>
-            <div class="screenshot">
-                <a href="screenshot5.jpg" target="_blank">
-                    <img src="screenshot5.jpg" alt="Screenshot 5">
-                </a>
-            </div>
-            <div class="screenshot">
-                <a href="screenshot6.jpg" target="_blank">
-                    <img src="screenshot6.jpg" alt="Screenshot 6">
-                </a>
-            </div>
+            <button class="prev" onclick="showPrevImage()">&#10094;</button>
+            <button class="next" onclick="showNextImage()">&#10095;</button>
         </div>
     </div>
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        const carouselInner = document.querySelector('.carousel-inner');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active');
+            updateCarouselPosition();
+        }
+
+        function showPrevImage() {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            images[currentImageIndex].classList.add('active');
+            updateCarouselPosition();
+        }
+
+        function updateCarouselPosition() {
+            const offset = -currentImageIndex * 100;
+            carouselInner.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    </script>
 </body>
 </html>
