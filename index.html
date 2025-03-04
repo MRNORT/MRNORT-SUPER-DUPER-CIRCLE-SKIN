@@ -3,217 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the MRNORT SUPER DUPER CIRCLE SKIN">
-    <meta name="keywords" content="MRNORT, SUPER DUPER, CIRCLE SKIN, Download, Skin, Osu, Mania">
-    <title>MRNORT SUPER DUPER CIRCLE SKIN</title>
+    <title>MRNORT - Ultimate Circle Skin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(to bottom right, #8e44ad, #7d3c98, #5d478b, #4a69bd);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
+        :root {
+            --primary: #b3adf3;
+            --secondary: #e8b6e3;
+            --accent: #edc8ea;
+            --background: #0a0818;
+            --glass: rgba(181, 174, 242, 0.1);
         }
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--background);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+            user-select: none;
+        }
+
+        .particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(1px);
         }
 
         .container {
-            width: 90%;
-            max-width: 800px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .hero {
             text-align: center;
-            padding: 50px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            animation: containerFadeIn 2s ease;
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            text-shadow: 0 4px 24px rgba(179, 173, 243, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0.5;
+        }
+
+        .download-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            max-width: 1000px;
+            margin: 0 auto 6rem;
+        }
+
+        .download-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(197, 194, 247, 0.15);
             position: relative;
             overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardPop 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        @keyframes containerFadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes cardPop {
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            background: linear-gradient(90deg, #ffcd03, #ff85e4, #01cdfe, #ff85e4);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientText 8s linear infinite, textFadeIn 2s ease;
-            display: inline-block;
-            white-space: normal;
-            word-wrap: break-word;
-            text-align: center;
-            margin: 0 auto;
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(179, 173, 243, 0.1) 0%,
+                transparent 70%);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 16px 48px rgba(179, 173, 243, 0.25);
+            border-color: rgba(197, 194, 247, 0.4);
+        }
+
+        .download-card:hover::before {
+            opacity: 0.8;
+        }
+
+        .download-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.1) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            transition: left 0.6s ease;
+        }
+
+        .download-card:hover::after {
+            left: 150%;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
             position: relative;
             z-index: 1;
         }
 
-        @keyframes gradientText {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .download-btn i {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes textFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .version {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            display: block;
         }
 
-        #download-button, #download-mint-button {
-            padding: 15px 30px;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            animation: glow 1.5s ease infinite alternate, buttonFadeIn 2s ease;
-            display: inline-block;
-            margin: 15px;
-            text-decoration: none;
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 16px 40px rgba(11, 10, 18, 0.4);
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            transition: transform 0.3s ease;
         }
 
-        #download-button {
-            background-color: #6a5acd;
-        }
-
-        #download-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(106, 90, 205, 0.7);
-            background-color: #483d8b;
-        }
-
-        #download-mint-button {
-            background-color: #1e8f8c; /* Slightly muted mint color */
-        }
-
-        #download-mint-button:hover {
-            background-color: #17a589;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(30, 143, 140, 0.7);
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 10px rgba(106, 90, 205, 0.7); }
-            to { box-shadow: 0 0 20px rgba(106, 90, 205, 0.7); }
-        }
-
-        @keyframes buttonFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .carousel-container:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.01);
         }
 
         .carousel {
             position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding-bottom: 56.25%;
         }
 
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel img {
-            width: 100%;
-            display: block;
-        }
-
-        .carousel .prev, .carousel .next {
+        .slide {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.98);
+            cursor: grab;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 2;
+        }
+
+        .control-dot {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            z-index: 1;
+            background: rgba(197, 194, 247, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .carousel .prev {
-            left: 10px;
-        }
-
-        .carousel .next {
-            right: 10px;
+        .control-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+            box-shadow: 0 0 12px rgba(179, 173, 243, 0.3);
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 36px; }
-            #download-button, #download-mint-button { font-size: 14px; padding: 10px 20px; }
-        }
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 28px; }
-            #download-button, #download-mint-button { font-size: 12px; padding: 8px 16px; }
-            .container { padding: 20px; }
+            .carousel-container {
+                border-radius: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <canvas class="particles-canvas"></canvas>
+
     <div class="container">
-        <h1>MRNORT SUPER DUPER CIRCLE SKIN</h1>
-        <a id="download-button" href="MRNORT-SUPER-DUPER-CIRCLE-SKIN-VER3.osk" download>Download Ver3</a>
-        <a id="download-mint-button" href="MRNORT-SUPER-DUPER-CIRCLE-SKIN-MINT-VER2.osk" download>Download Mint Ver2</a>
-        <div class="carousel">
-            <div class="carousel-inner">
-                <img src="screenshot1.jpg" alt="Screenshot 1" class="active">
-                <img src="screenshot2.jpg" alt="Screenshot 2">
-                <img src="screenshot3.jpg" alt="Screenshot 3">
-                <img src="screenshot4.jpg" alt="Screenshot 4">
-                <img src="screenshot5.jpg" alt="Screenshot 5">
-                <img src="screenshot6.jpg" alt="Screenshot 6">
+        <div class="hero">
+            <h1 class="title">MRNORT<br>SUPER DUPER<br>CIRCLE SKIN</h1>
+
+            <div class="download-grid">
+                <div class="download-card">
+                    <span class="version">VERSION 3.0</span>
+                    <a href="MRNORT-SUPER-DUPER-CIRCLE-SKIN-VER3.osk" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        <div>
+                            <div>Download Now</div>
+                            <small>Normal Ver3</small>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="download-card">
+                    <span class="version">MINT EDITION 2.0</span>
+                    <a href="MRNORT-SUPER-DUPER-CIRCLE-SKIN-MINT-VER2.osk" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        <div>
+                            <div>Mint Version</div>
+                            <small>Mint ver2</small>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <button class="prev" onclick="showPrevImage()">&#10094;</button>
-            <button class="next" onclick="showNextImage()">&#10095;</button>
+
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="slide active">
+                        <img src="screenshot1.jpg" alt="Skin Preview 1">
+                    </div>
+                    <div class="slide">
+                        <img src="screenshot2.jpg" alt="Skin Preview 2">
+                    </div>
+                    <div class="slide">
+                        <img src="screenshot3.jpg" alt="Skin Preview 3">
+                    </div>
+                </div>
+                <div class="carousel-controls" id="controls"></div>
+            </div>
         </div>
     </div>
+
     <script>
-        const images = document.querySelectorAll('.carousel img');
-        const carouselInner = document.querySelector('.carousel-inner');
-        let currentImageIndex = 0;
+        // Enhanced Particle System
+        class ParticleSystem {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.particles = [];
+                this.mouse = { x: null, y: null, radius: 150 };
+                this.frame = 0;
+                this.resize();
+                
+                window.addEventListener('mousemove', e => {
+                    this.mouse.x = e.x;
+                    this.mouse.y = e.y;
+                });
+                
+                window.addEventListener('resize', () => this.resize());
+                this.init();
+            }
 
-        function showNextImage() {
-            images[currentImageIndex].classList.remove('active');
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            images[currentImageIndex].classList.add('active');
-            updateCarouselPosition();
+            resize() {
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width;
+                this.canvas.height = this.height;
+            }
+
+            init() {
+                for(let i = 0; i < 300; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        radius: Math.random() * 2,
+                        speedX: (Math.random() - 0.5) * 0.25,
+                        speedY: (Math.random() - 0.5) * 0.25,
+                        color: `rgba(179, 173, 243, ${Math.random() * 0.4})`,
+                        density: Math.random() * 30 + 10
+                    });
+                }
+                this.animate();
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.width, this.height);
+                
+                this.particles.forEach(particle => {
+                    const dx = particle.x - this.mouse.x;
+                    const dy = particle.y - this.mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if(distance < this.mouse.radius) {
+                        const force = (this.mouse.radius - distance) / this.mouse.radius;
+                        particle.x += (dx / distance) * force * particle.density * 0.1;
+                        particle.y += (dy / distance) * force * particle.density * 0.1;
+                    }
+
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+
+                    if(particle.x < 0 || particle.x > this.width) particle.speedX *= -1;
+                    if(particle.y < 0 || particle.y > this.height) particle.speedY *= -1;
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = particle.color;
+                    this.ctx.fill();
+
+                    this.particles.forEach(other => {
+                        const dx = particle.x - other.x;
+                        const dy = particle.y - other.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if(distance < 100) {
+                            this.ctx.beginPath();
+                            this.ctx.strokeStyle = `rgba(179, 173, 243, ${0.3 - (distance/100)*0.3})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.moveTo(particle.x, particle.y);
+                            this.ctx.lineTo(other.x, other.y);
+                            this.ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
         }
 
-        function showPrevImage() {
-            images[currentImageIndex].classList.remove('active');
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            images[currentImageIndex].classList.add('active');
-            updateCarouselPosition();
+        // Carousel System
+        let currentSlide = 0;
+        let autoAdvance = true;
+        const slides = document.querySelectorAll('.slide');
+        const controls = document.querySelector('#controls');
+
+        // Create control dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = 'control-dot';
+            dot.addEventListener('click', () => {
+                autoAdvance = false;
+                updateCarousel(index);
+            });
+            controls.appendChild(dot);
+        });
+
+        function updateCarousel(index) {
+            currentSlide = index;
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+            document.querySelectorAll('.control-dot').forEach((dot, i) => 
+                dot.classList.toggle('active', i === index));
         }
 
-        function updateCarouselPosition() {
-            const offset = -currentImageIndex * 100;
-            carouselInner.style.transform = `translateX(${offset}%)`;
-        }
+        // Auto-advance
+        setInterval(() => {
+            if(autoAdvance) {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateCarousel(currentSlide);
+            }
+        }, 5000);
 
-        setInterval(showNextImage, 3000); // Change image every 3 seconds
+        // Touch handling
+        let touchStartX = 0;
+        const carousel = document.querySelector('.carousel-container');
+
+        carousel.addEventListener('touchstart', e => {
+            autoAdvance = false;
+            touchStartX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > 50) {
+                currentSlide = diff > 0 
+                    ? (currentSlide + 1) % slides.length 
+                    : (currentSlide - 1 + slides.length) % slides.length;
+                updateCarousel(currentSlide);
+            }
+            setTimeout(() => autoAdvance = true, 5000);
+        });
+
+        // Initialize systems
+        new ParticleSystem(document.querySelector('.particles-canvas'));
+        updateCarousel(0);
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', () => autoAdvance = false);
+        carousel.addEventListener('mouseleave', () => autoAdvance = true);
     </script>
 </body>
-</html>
